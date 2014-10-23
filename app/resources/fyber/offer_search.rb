@@ -18,11 +18,11 @@ module Fyber
       Offer.where(criteria)
     end
 
+    private
+
     def criteria
       options.merge(hashkey: hash_key)
     end
-
-    private
 
     def hash_key
       HashKey.new(options).generate
