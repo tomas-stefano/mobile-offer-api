@@ -1,0 +1,11 @@
+<%= simple_form_for(@offers_form, method: :get, url: root_path) do |f| %>
+  <%= f.input :uid %>
+  <%= f.input :pub0 %>
+  <%= f.input :page %>
+
+  <%= f.submit :search %>
+<% end %>
+
+<% if @offers_form.has_user_data_and_valid? %>
+  <%= render(@offers) || render('without_offers')  %>
+<% end %>
