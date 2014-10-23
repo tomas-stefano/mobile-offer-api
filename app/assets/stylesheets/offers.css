@@ -1,0 +1,26 @@
+.container {
+  width: 500px;
+  float: left;
+  margin-right: 20px;
+}
+
+.container .offers-form {
+  background-color: #F9F9F9;
+  color: #8E8B84;
+}
+
+.container input {
+  margin-left: 5px;
+}
+
+.container .offers, .container .no_offers {
+  margin: 10px;
+}
+
+.container .field_with_errors input {
+  border-color: #F00;
+}
+
+.container .error {
+  color: #F00;
+}

@@ -1,4 +1,4 @@
-<%= simple_form_for(@offers_form, method: :get, url: root_path) do |f| %>
+<%= simple_form_for(@offers_form, method: :get, url: root_path, html: { class: 'offers-form'}) do |f| %>
   <%= f.input :uid %>
   <%= f.input :pub0 %>
   <%= f.input :page %>
