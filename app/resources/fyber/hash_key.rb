@@ -7,7 +7,8 @@ module Fyber
     end
 
     def generate
-      Digest::SHA1.hexdigest("#{@params.to_query}&#{Fyber::APISettings.api_key}")
+      payload = "#{@params.to_query}&#{Fyber::APISettings.api_key}"
+      Digest::SHA1.hexdigest(payload)
     end
   end
 end

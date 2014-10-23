@@ -6,7 +6,8 @@ class OffersForm
 
   validates :uid, presence: true
   validates :uid, :pub0, length: { maximum: 50 }
-  validates :page, numericality: true, length: { maximum: 15 }, allow_blank: true
+  validates :page, numericality: true,
+            length: { maximum: 15 }, allow_blank: true
 
   attr_reader :attributes
 
@@ -21,6 +22,6 @@ class OffersForm
   end
 
   def attributes
-    @attributes.select { |key,value| value.present? }
+    @attributes.select { |_, value| value.present? }
   end
 end
