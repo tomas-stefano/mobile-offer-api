@@ -6,7 +6,7 @@ gem 'jeckle', '~> 0.4.0.beta3'
 gem 'rails', '4.1.6'
 gem 'sass-rails', '~> 4.0.3'
 gem 'simple_form', '~> 3.0.2'
-gem 'unicorn'
+gem 'unicorn-rails'
 
 group :test do
   gem 'faker'
