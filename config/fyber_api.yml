@@ -1,0 +1,15 @@
+defaults: &defaults
+  base_uri: 'http://api.sponsorpay.com'
+  prefix: 'feed'
+  version: 'v1'
+  open_timeout: 2
+  read_timeout: 5
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults
