@@ -9,3 +9,7 @@ To install dependencies, run the following command:
 # Run the test suite
 
     rspec spec
+
+# Start the application
+
+    rails s
