@@ -7,5 +7,5 @@
 <% end %>
 
 <% if @offers_form.has_user_data_and_valid? %>
-  <%= render(@offers) || render('without_offers')  %>
+  <%= render(@offers) || render('no_offers')  %>
 <% end %>
