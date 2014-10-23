@@ -1,4 +1,10 @@
-# Ruby version: 2.1.2
+## Installation
+
+Ruby version used: 2.1.2
+
+Installing dependencies run this command:
+
+    bundle install
 
 # Run the test suite
 
