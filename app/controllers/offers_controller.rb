@@ -3,7 +3,7 @@ class OffersController < ApplicationController
     @offers_form = OffersForm.new(params[:offers_form])
 
     if @offers_form.has_user_data_and_valid?
-      @offers = Fyber::Offer.where(@offers_form.attributes)
+      @offers = Fyber::OfferSearch.new(@offers_form.attributes).fetch
 
       respond_with(@offers, status: @offers.response.status)
     end

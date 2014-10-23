@@ -22,7 +22,7 @@ RSpec.describe OffersController do
       let(:offers) { double(response: api_response) }
 
       before do
-        expect(Fyber::Offer).to receive(:where).and_return(offers)
+        expect_any_instance_of(Fyber::OfferSearch).to receive(:fetch).and_return(offers)
         get :index, offers_form: { uid: '200' }
       end
 
