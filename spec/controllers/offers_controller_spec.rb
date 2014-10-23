@@ -23,21 +23,44 @@ RSpec.describe OffersController do
 
       before do
         expect_any_instance_of(Fyber::OfferSearch).to receive(:fetch).and_return(offers)
-        get :index, offers_form: { uid: '200' }
       end
 
-      context 'when API responds success' do
-        let(:api_response) { double(status: 200) }
+      context 'when response signature is valid' do
+        before do
+          expect_any_instance_of(Fyber::ResponseSignature).to receive(:valid?).and_return(true)
+          get :index, offers_form: { uid: '200' }
+        end
 
-        it 'responds successful' do
-          expect(response.status).to be(200)
+        context 'when API responds success' do
+          let(:api_response) { double(status: 200) }
+
+          it 'responds successful' do
+            expect(response.status).to be(200)
+          end
+        end
+
+        context 'when API responds to a bad request' do
+          let(:api_response) { double(status: 400) }
+
+          it 'responds bad request' do
+            expect(response.status).to be(400)
+          end
         end
       end
 
-      context 'when API responds to a bad request' do
-        let(:api_response) { double(status: 400) }
+      context 'when response signature is invalid' do
+        let(:api_response) { double }
 
-        it 'responds bad request' do
+        before do
+          expect_any_instance_of(Fyber::ResponseSignature).to receive(:valid?).and_return(false)
+          get :index, offers_form: { uid: '200' }
+        end
+
+        it 'assigns empty offers' do
+          expect(assigns[:offers]).to eq([])
+        end
+
+        it 'responds a bad request' do
           expect(response.status).to be(400)
         end
       end
